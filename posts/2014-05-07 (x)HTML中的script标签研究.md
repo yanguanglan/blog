@@ -4,10 +4,23 @@
 
 > Scripts without async or defer attributes, as well as inline scripts, are fetched and executed immediately, before the browser continues to parse the page. - MDN
 
-
 > the blocking nature of JavaScript, which is to say that nothing else can happen while JavaScript code is being executed. In fact, most browsers use a single process for both user interface (UI) updates and JavaScript execution, so only one can happen at any given moment in time. The longer JavaScript takes to execute, the longer it takes before the browser is free to respond to user input. - Nicholas C. Zakas「High Performance JavaScript 」
 
-## 非堵塞Scripts(Nonblocking Scripts) 
+上面引用两段话的意思大致是，当浏览器解析DOM文档时，一旦遇到 script 标签（没有defer 和 async 属性）就会立即下载并执行，与此同时浏览器对文档的解析将会停止，直到 script 代码执行完成。出现这种堵塞行为一方面是因为浏览器的UI渲染，交互行为等都是单线程操作，另一方是因为 script 里面的代码可能会影响到后面文档的解析，比如下面的代码：
+
+```js
+
+<script type="text/javascript">
+document.write("The date is " + (new Date()).toDateString());
+</script>
+
+```
+这个堵塞特性会严重的影响用户体验，下面是几种优化方案：
+
+- 尽量把脚本往文档的后面放，以减少对文档的堵塞，最好放在 </body> 前面。
+- 尽量把脚本按照它们的依赖关系放在一个文件中
+
+不过更好的方法是下面的非堵塞加载脚本(Nonblocking Scripts)的方法：
 
 ### 1. Deferred Script (延迟脚本)
 
