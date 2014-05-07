@@ -8,7 +8,7 @@
 
 上面引用两段话的意思大致是，当浏览器解析DOM文档时，一旦遇到 script 标签（没有defer 和 async 属性）就会立即下载并执行，与此同时浏览器对文档的解析将会停止，直到 script 代码执行完成。出现这种堵塞行为一方面是因为浏览器的UI渲染，交互行为等都是单线程操作，另一方是因为 script 里面的代码可能会影响到后面文档的解析，比如下面的代码：
 
-```js
+```html
 
 <script type="text/javascript">
 document.write("The date is " + (new Date()).toDateString());
