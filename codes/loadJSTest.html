@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>load JS test</title>
+</head>
+<body>
+  <h1>load JS test </h1>
+<script src="loadJS.js"></script>
+<script>
+  loadJS('a.js', function(){
+    console.log('a loaded');
+  });
+  loadJS('b.js', function(){
+    console.log('b loaded');
+  })
+</script>
+</body>
+</html>
