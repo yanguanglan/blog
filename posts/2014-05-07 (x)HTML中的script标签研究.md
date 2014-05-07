@@ -51,7 +51,7 @@ loadJS('a.js', function(){
 
 ### 3. XMLHttpRequest Script Injection (XHR动态插入)
 原理是利用XMLHttpReques(XHR)对象，动态获取一段JS代码，然后插入文档。
-相对其他方法来说的一个优点是可以“懒执行”，也就是JS代码已经先下载好了并没有执行，可以在需要的来执行。(之前的动态脚本在下载后会立即执行)，实现代码；
+相对其他方法来说的一个优点是可以“懒执行”，也就是JS代码已经先下载好了并没有执行，可以在需要的来执行(?)。(之前的动态脚本在下载后会立即执行)，实现代码；
 
 ```js
 function xhrLoadJS (url, callback){
