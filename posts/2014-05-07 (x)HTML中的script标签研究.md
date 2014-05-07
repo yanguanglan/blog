@@ -1,10 +1,11 @@
 # (x)HTML中的script标签研究
 
-## Script 的堵塞特性
+## Script 的堵塞(block)特性
 
-> Scripts without async or defer attributes, as well as inline scripts, are fetched and executed immediately, before the browser continues to parse the page. —— MDN
+> Scripts without async or defer attributes, as well as inline scripts, are fetched and executed immediately, before the browser continues to parse the page. - MDN
 
-> he blocking nature of JavaScript, which is to say that nothing else can happen while JavaScript code is being executed. In fact, most browsers use a single process for both user interface (UI) updates and JavaScript execution, so only one can happen at any given moment in time. The longer JavaScript takes to execute, the longer it takes before the browser is free to respond to user input.
+
+> he blocking nature of JavaScript, which is to say that nothing else can happen while JavaScript code is being executed. In fact, most browsers use a single process for both user interface (UI) updates and JavaScript execution, so only one can happen at any given moment in time. The longer JavaScript takes to execute, the longer it takes before the browser is free to respond to user input. - Nicholas C. Zakas「High Performance JavaScript 」
 
 ## 非堵塞Scripts(Nonblocking Scripts) 
 
