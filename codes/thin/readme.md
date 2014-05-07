@@ -54,3 +54,4 @@ use: function(name){
 
 ## 参考
 1. [从零开始编写自己的JavaScript框架（一）](http://blog.xufei.gitpress.org/~posts/2013-07-01-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84JavaScript%E6%A1%86%E6%9E%B6%EF%BC%88%E4%B8%80%EF%BC%89.md)
+2. [从零开始编写自己的JavaScript框架（二）](http://blog.xufei.gitpress.org/~posts/2013-07-10-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84JavaScript%E6%A1%86%E6%9E%B6%EF%BC%88%E4%BA%8C%EF%BC%89.md)
