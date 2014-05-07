@@ -1,18 +1,18 @@
-## (x)HTML中的script标签研究
+# (x)HTML中的script标签研究
 
-### 堵塞 document
+## 堵塞 document
 1. 内联script
 2. script有src属性
 
 ## 非堵塞Scripts(Nonblocking Scripts) 
 
-### 1. Deferred Script
+### 1. Deferred Script (延迟脚本)
 
 Script 有一个 defer 属性，拥有这个属性的script表明这个script不会修改DOM，因此这段脚本会在文档树全部解析完成后触发( to be executed after the document has been parsed). 但这个属性并不被所有的浏览器支持。
 
-### 2. Dynamic Script Elements (动态添加脚本)
+### 2. Dynamic Script Elements (动态脚本)
 
-原理就是使用脚本创建script元素，设置src需为要动态添加脚本的url，在把这个script添加到DOM中。有时我们需要动态脚本加载完成后再执行某些操作，这就需要我们在脚本加载完成后添加一个回调函数，这个可以通过script的onload事件实现。下面的实现代码：
+原理就是使用脚本创建 script 元素，设置 src 需为要动态添加脚本的 URL，再把这个 script 添加到DOM中。有时我们需要动态脚本加载完成后再执行某些操作，这就需要我们在脚本加载完成后添加一个回调函数，这个可以通过 script 的 onload 事件实现。下面的实现代码：
 
 ```js
 function loadJS(url, callback){
@@ -47,6 +47,32 @@ loadJS('a.js', function(){
   })
 })
 ```
+当有大量的脚本需要动态添加时，这样写也会遇到问题；另外的解决方案是利用一些现成的库，比如 LABjs
+
+### 3. XMLHttpRequest Script Injection (XHR动态插入)
+原理是利用XMLHttpReques(XHR)对象，动态获取一段JS代码，然后插入文档。
+相对其他方法来说的一个优点是可以“懒执行”，也就是JS代码已经先下载好了并没有执行，可以在需要的来执行。(之前的动态脚本在下载后会立即执行)，实现代码；
+
+```js
+function xhrLoadJS (url, callback){
+  var xhr = new XMLhttpRequest();
+  xhr.open('get', url, true);
+  xhr.onreadystatechange = function(){
+    if(xhr.ready == 4){
+      if(xhr.status >= 200 && xhr.status < 300 || xhr.status = 304){
+        var script = document.createElement('script');
+        script.type = 'text/script';
+        script.text = xhr.responseText;
+        document.body.appendChild(script);
+        callback();
+      }
+    }
+  }
+  xhr.send(null);
+}
+```
+缺点是不能跨域请求
+
 ## 参考
 1. [Javascript 装载和执行](http://coolshell.cn/articles/9749.html)
 2. [MDN Script元素](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
