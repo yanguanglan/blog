@@ -41,10 +41,14 @@ ssh -T git@github.com
 ---------
 
 ## 使用技巧
+
 1. 添加，提交并推送
-```
-git add * && git commit -a -m "undate" && git push origin master
-```
+
+``` git add * && git commit -a -m "undate" && git push origin master ```
+
+2. 从仓库中更新
+
+``` git pull origin  ```
 
 ## 教程
 
