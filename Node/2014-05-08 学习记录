@@ -1,0 +1,14 @@
+## 2014-05-08 学习记录
+
+### 1. 批量下载豆瓣图片
+
+这次过程中学习了 request 和 cheerio 两个模块.
+
+参考：
+- http://blog.miguelgrinberg.com/post/easy-web-scraping-with-nodejs
+- https://github.com/cheeriojs/cheerio
+- https://github.com/mikeal/request
+
+### 2. 学习了Node的 FileSystem 和 Path 模块
+
+### 3. 学习了“七天学会NodeJS”的部分知识
