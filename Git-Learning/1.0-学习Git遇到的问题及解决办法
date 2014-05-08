@@ -1,0 +1,18 @@
+1. 在windows下使用 ``` git mv ``` 重命名文件/文件夹
+
+** 问题描述 **
+
+我的仓库有a文件夹，我想把它重命名为文件夹，使用 ``` git mv a/  A/ ``` 命令时，总是会出现 * failed: Permission denied * 的错误。
+
+** 问题解决 ** 
+
+这是因为在Windows下文件名不分大小写导致的，可以这样解决：
+
+```
+git mv controller Controller-tmp
+git mv Controller-tmp Controller
+
+```
+
+** 参考 **
+1. http://stackoverflow.com/questions/14578680/changing-case-of-folder-via-git-bash-on-windows
