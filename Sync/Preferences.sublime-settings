@@ -1,0 +1,26 @@
+{
+	
+	"font_size": 13.0,
+	
+	// 缩进相关
+	"detect_indentation": true,
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+	"use_tab_stops": true,
+
+	// 行折叠相关，改为100字符
+	// Columns in which to display vertical rulers
+	"rulers": [100],
+
+  // Disables horizontal scrolling if enabled.
+  // May be set to true, false, or "auto", where it will be disabled for
+  // source code, and otherwise enabled.
+  "word_wrap": "true",
+
+  // Set to a value other than 0 to force wrapping at that column rather than the
+  // window width
+  "wrap_width": 100,
+
+  //单词分隔符，去掉了 - 
+  "word_separators": "./\\()\"':,.;<>~!@#$%^&*|+=[]{}`~?"
+}
