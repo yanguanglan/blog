@@ -1,16 +1,16 @@
 {
-	
-	"font_size": 13.0,
-	
-	// 缩进相关
-	"detect_indentation": true,
-	"tab_size": 2,
-	"translate_tabs_to_spaces": true,
-	"use_tab_stops": true,
+  //字体大小
+  "font_size": 13.0,
 
-	// 行折叠相关，改为100字符
-	// Columns in which to display vertical rulers
-	"rulers": [100],
+  // 缩进相关
+  "detect_indentation": true,
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  "use_tab_stops": true,
+
+  // 行折叠相关，改为100字符
+  // Columns in which to display vertical rulers
+  "rulers": [100],
 
   // Disables horizontal scrolling if enabled.
   // May be set to true, false, or "auto", where it will be disabled for
